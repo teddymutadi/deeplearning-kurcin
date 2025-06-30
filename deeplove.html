@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login Pengguna</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      background-image: url('https://www.geocities.ws/diklat/background%20web/abstractblue.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    header {
+      width: 100%;
+      background-color: #0a0a5c;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 25px;
+    }
+
+    header p {
+      margin: 5px 0 0 0;
+      font-size: 14px;
+    }
+
+    .container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      padding: 20px;
+    }
+
+    .user-box {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 250px;
+    }
+
+    .user-box img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .user-box input {
+      display: block;
+      width: 90%;
+      margin: 10px auto;
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    .login-btn {
+      background: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .login-btn:hover {
+      background-color: #0d74d1;
+    }
+
+    @media (max-width: 600px) {
+      .user-box {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>DEEP LEARNING DAN KURIKULUM CINTA</h1>
+    <p>Presented by: Dr. H. Mutadi, S. Pd., M. Ed. - WhatsApp 082 13731 2000</p>
+  </header>
+
+  <div class="container">
+    
+    <!-- Login 1 -->
+    <div class="user-box">
+      <img src="https://teddymutadi.github.io/deeplearning-kurcin/deeplearning.webp" alt="" />
+      <form onsubmit="return loginUser(event, 'deeplearning', '12345678', 'https://www.google.com')">
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+
+    <!-- Login 2 -->
+    <div class="user-box">
+      <img src="https://teddymutadi.github.io/deeplearning-kurcin/kurcin.jpg" alt="" />
+      <form onsubmit="return loginUser(event, 'kurcin', '12345678', 'https://www.geocities.ws')">
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <button type="submit" class="login-btn">Login</button>
+      </form>
+    </div>
+
+  </div>
+
+  <script>
+    function loginUser(event, validUser, validPass, redirectUrl) {
+      event.preventDefault();
+      const form = event.target;
+      const username = form.username.value.trim();
+      const password = form.password.value.trim();
+
+      if (username === validUser && password === validPass) {
+        window.location.href = redirectUrl;
+      } else {
+        alert("Username atau password salah!");
+      }
+    }
+  </script>
+</body>
+</html>
